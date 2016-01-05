@@ -1,0 +1,342 @@
+$class-slug: indent !default;
+
+@for $i from 1 through 6 {
+  li.#{$class-slug}#{$i} {
+    padding-left: $i + em;
+  }
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline;
+}
+
+svg {
+  width: 100%;
+  border: 1px solid #cbcbcb;
+  fill: black;
+
+  -webkit-tap-highlight-color:rgba(0,0,0,0)
+}
+
+svg.selection {
+  cursor: move;
+}
+
+svg g.draggable {
+  cursor: move;
+  cursor: -webkit-grab;
+
+}
+
+svg g.drag {
+  cursor: -webkit-grabbing;
+}
+
+svg g.selected circle {
+  stroke: blue;
+  fill: blue;
+}
+
+svg circle {
+  stroke: black;
+  stroke-width: 3px;
+}
+
+svg line.vector {
+  stroke-width: 3px;
+  stroke: blue;
+}
+
+svg circle.selected {
+  stroke: blue;
+  fill: blue;
+}
+
+svg g.convex circle {
+  stroke: red;
+}
+
+svg text {
+  fill: #fff;
+  cursor: inherit;
+}
+
+svg text.outside {
+  fill: #000;
+}
+
+svg polygon.convex {
+  fill: transparent;
+  stroke: red;
+  stroke-width: 3px;
+}
+
+svg rect.selection {
+  stroke          : gray;
+  stroke-dasharray: 4px;
+  stroke-opacity  : 0.5;
+  fill            : transparent;
+}
+
+$color-primary-0: #D2AB00;	// Main Primary color */
+$color-primary-1: #FFCF00;
+$color-primary-2: #F6C800;
+$color-primary-3: #AF9316;
+$color-primary-4: #84701A;
+
+$color-secondary-1-0: #9710FF;	// Main Secondary color (1) */
+$color-secondary-1-1: #DEB3FF;
+$color-secondary-1-2: #D094FF;
+$color-secondary-1-3: #030005;
+$color-secondary-1-4: #030005;
+
+$color-secondary-2-0: #29395A;	// Main Secondary color (2) */
+$color-secondary-2-1: #515660;
+$color-secondary-2-2: #3D475B;
+$color-secondary-2-3: #132A59;
+$color-secondary-2-4: #082461;
+
+$color-complement-0: #C7C3D8;	// Main Complement color */
+$color-complement-1: #575463;
+$color-complement-2: #6C6683;
+$color-complement-3: #B0AEB8;
+$color-complement-4: #A8A6AC;
+
+// As RGBa codes */
+
+$rgba-primary-0: rgba(210,171,  0,1);	// Main Primary color */
+$rgba-primary-1: rgba(255,207,  0,1);
+$rgba-primary-2: rgba(246,200,  0,1);
+$rgba-primary-3: rgba(175,147, 22,1);
+$rgba-primary-4: rgba(132,112, 26,1);
+
+$rgba-secondary-1-0: rgba(151, 16,255,1);	// Main Secondary color (1) */
+$rgba-secondary-1-1: rgba(222,179,255,1);
+$rgba-secondary-1-2: rgba(208,148,255,1);
+$rgba-secondary-1-3: rgba(  3,  0,  5,1);
+$rgba-secondary-1-4: rgba(  3,  0,  5,1);
+
+$rgba-secondary-2-0: rgba( 41, 57, 90,1);	// Main Secondary color (2) */
+$rgba-secondary-2-1: rgba( 81, 86, 96,1);
+$rgba-secondary-2-2: rgba( 61, 71, 91,1);
+$rgba-secondary-2-3: rgba( 19, 42, 89,1);
+$rgba-secondary-2-4: rgba(  8, 36, 97,1);
+
+$rgba-complement-0: rgba(199,195,216,1);	// Main Complement color */
+$rgba-complement-1: rgba( 87, 84, 99,1);
+$rgba-complement-2: rgba(108,102,131,1);
+$rgba-complement-3: rgba(176,174,184,1);
+$rgba-complement-4: rgba(168,166,172,1);
+
+$p-color: #551C1C;
+$q-color: #172139;
+$r-color: #164416;
+
+.states-table {
+  width: 100%;
+
+  th:nth-child(2) {
+    width:100%;
+  }
+
+  tr.valid td:last-child {
+    background-color: lime;
+  }
+
+  tr.invalid td:last-child {
+    background-color: red;
+  }
+}
+
+#slow-convex-hull, #convex-hull, #extra {
+  svg {
+    line {
+      stroke-width: 5px;
+
+      &.valid {
+        stroke: lime;
+      }
+
+      &.invalid {
+        stroke: red;
+      }
+    }
+
+    path.convex-hull {
+      stroke: green;
+      stroke-width: 5px;
+      fill: none;
+    }
+
+    g.convex circle {
+      stroke: green;
+      stroke-width: 3px;
+    }
+
+  }
+
+  .convex-hull td:last-child {
+    background: green;
+  }
+
+  .p-color {
+    circle {
+      fill: $color-primary-0;
+      stroke: $color-primary-0;
+    }
+  }
+
+  .q-color {
+    circle {
+      fill: $color-secondary-1-0;
+      stroke: $color-secondary-1-0;
+    }
+  }
+
+  .r-color {
+    circle {
+      fill: $color-secondary-2-0;
+      stroke: $color-secondary-2-0;
+    }
+  }
+
+  .states-table {
+    tr.p-color td:last-child {
+      background-color: $color-primary-0;
+    }
+
+    tr.q-color td:last-child {
+      background-color: $color-secondary-1-0;
+    }
+
+    tr.r-color td:last-child {
+      background-color: $color-secondary-2-0;
+    }
+  }
+}
+
+#determinant {
+  [data-hook="result"] {
+    color: blue;
+
+    &.negative {
+      color: red;
+    }
+  }
+
+  .vector {
+    stroke-width: 3px;
+    stroke: lime;
+  }
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+.axis text {
+  font-family: sans-serif;
+  font-size: 11px;
+  fill: #000;
+}
+
+/* disable text selection */
+svg *::selection,
+svg *::-moz-selection,
+svg *::-webkit-selection {
+  background : transparent;
+}
+
+input[type=range] {
+  width: 100%;
+}
+
+// Determinant table stuff
+
+table.matrix td:first-child {
+  border-left: 1px solid black;
+}
+
+table.matrix td:last-child {
+  border-right: 1px solid black;
+}
+
+table th {
+  border-bottom: 1px solid black;
+}
+
+table th, td {
+  padding: 0.5em 1em;
+}
+
+.nopad {
+  padding: 0;
+}
+
+.vmarg {
+  margin: 1em 0;
+}
+
+.vmarg:last-child {
+  margin-bottom: 0;
+}
+
+.fw {
+  width: 100%;
+}
+
+.tpad {
+  padding-top: 1em;
+}
+
+[data-hook="log"] {
+  display: block;
+  overflow: auto;
+}
+
+.nvd3 text {
+  fill: black;
+}
+
+.nvd3 .nv-axis.nv-x path.domain {
+  stroke-opacity: inherit;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+
+  .row {
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+
+    *:first-child {
+      flex-grow: 1;
+    }
+  }
+}
+
+// MathJax
+.MJXc-display {
+  overflow: auto;
+}

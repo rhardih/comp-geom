@@ -1,0 +1,32 @@
+{
+  "name": "comp-geom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "ampersand-dom-bindings": "^3.8.0",
+    "ampersand-state": "^5.0.0",
+    "ampersand-view": "^9.0.2",
+    "benchmark": "^2.1.0",
+    "d3": "^3.5.14",
+    "hbsfy": "^2.4.1",
+    "immutable": "^3.7.6",
+    "lodash": "^4.0.1",
+    "mathjax": "^2.5.1",
+    "nvd3": "^1.8.2"
+  },
+  "devDependencies": {
+    "handlebars": "^4.0.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify -t hbsfy scripts/chapter1.js | uglifyjs > scripts/chapter1.bundle.js",
+    "watch": "watchify -t hbsfy scripts/chapter1.js -o scripts/chapter1.bundle.js --debug --verbose",
+    "sass": "sass --watch ."
+  },
+  "author": "",
+  "license": "MIT"
+}
